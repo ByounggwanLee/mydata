@@ -1,0 +1,35 @@
+{
+	"folders": {},
+	"connections": {
+		"oracle_thin-185822a7d70-226df30bebff604b": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "ORAMYDATA",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "1521",
+				"database": "ORAMYDATA",
+				"url": "jdbc:oracle:thin:@//localhost:1521/ORAMYDATA",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
