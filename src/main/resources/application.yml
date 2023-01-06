@@ -7,22 +7,40 @@ spring:
   jackson:
     serialization:
       INDENT_OUTPUT: false
-      
+  sql:
+    init:
+      mode: embedded # ALWAYS: 모든 데이터베이스에 sql 스크립트를 동작시킨다. / EMBDEDED: embedded 데이터베이스만 sql 스크립트를 동작시킨다. / NEVER: 모든 데이터베이스에 sql 스크립트를 동작시키지 않는다.
+      schema-locations: classpath*:db/schema.sql
+      data-locations: classpath*:db/data.sql
+      #classpath*:db/${database}/schema.sql
+      #classpath*:db/${database}/data.sql
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost/ORAMYDATA
+    username: system
+    password: Qudrhks2!
 
-api:
-  info:
-    title: Review Service API
-    description: API to fetch review details for product
-    version: 1.0.0
-    terms-of-service: http://example.com/terms/
-    contact:
-      name: Review Service API Team
-      email: apiteam@example.com
-      url: http://example.com/team
-    license:
-      name: Apache 2.0
-      url: http://www.apache.org/licenses/LICENSE-2.0.html
-      
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none # create, create-drop, validate, update, none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        # SpringPhysicalNamingStrategy(Default)  =>  camel case를 underscore 형태로 변경
+        # PhysicalNamingStrategyStandardImpl     =>  변수 이름을 그대로 사용
+      use-new-id-generator-mappings: false
+    generate-ddl: false
+    show_sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+        show_sql: true
+
+
+#-------------------------------------------------------------
+# springdoc 정의
+#-------------------------------------------------------------      
 springdoc:
   api-docs:
     path: /api-docs # spring boot 웹 애플리케이션의 api를 OpenAPI 3을 이용하여 json 형식화 한것의 경로
@@ -42,9 +60,54 @@ springdoc:
       # none으로 설정할 경우, tag 및 operation이 모두 닫힌채로 문서가 열립니다.
   paths-to-match: # OpenAPI 3 로 문서화할 api path 리스트
     - /**
+api:  # Swagger UI Information
+  info:
+    title: ABL Mydata Service API
+    description: API to fetch Customer's data details for ABL Insurance
+    version: 1.0.0
+    terms-of-service: http://abllife.com/terms/
+    contact:
+      name: MydataService API Team
+      email: mydatateam@abllife.com
+      url: http://abllife.com/mydatateam
+    license:
+      name: Apache 2.0
+      url: http://www.apache.org/licenses/LICENSE-2.0.html
 
+#-------------------------------------------------------------
+# Feign Client 호출 URL 정의
+#-------------------------------------------------------------
 prop:
   test:
     url: http://localhost:8080/mydata
   github: 
     url: https://api.github.com/repos
+
+#-------------------------------------------------------------
+# log File 설정
+#-------------------------------------------------------------
+logging:
+  level:
+    root: error # trace, debug, info, warn, error, fatal
+    org.springframework: info
+    org.springframework.jdbc: info
+    org.hibernate.type: off
+    com.abl: debug
+    
+    jdbc:
+      connection: off
+      sqlonly: off
+      sqltiming: info
+      audit: off
+      result: off
+      resultsettable: info
+  file:
+    name: logs/mydata.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}-%i.log
+      max-file-size: 100MB
+      max-history: 30
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS,Asia/Seoul
+    
