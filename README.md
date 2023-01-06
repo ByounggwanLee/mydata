@@ -1,5 +1,5 @@
 # mydata
-
+'''
 echo off
 REM docker network create dev-net
 REM -------------------------------
@@ -23,3 +23,4 @@ REM   Unicode의 CES 중 하나- 11172자의 한글을 지원 (한글바이트: 
 REM -------------------------------
 docker run --name oracle --network dev-net -d -p 1521:1521 -e TZ=Asia/Seoul -e ORACLE_SID=ORAMYDATA -e ORACLE_PWD=Qudrhks2! -e ORACLE_CHARACTERSET=AL32UTF8 -v D:\Docker\mount\oracle\oradata:/opt/oracle/oradata doctorkirk/oracle-19c
 REM docker run --name oracle --network dev-net -d -p 1521:1521 -e TZ=Asia/Seoul -v D:\Docker\mount\oracle\oradata:/u01/app/oracle/oradata -v D:\Docker\mount\oracle\dbs:/u01/app/oracle/dbs jaspeen/oracle-xe-11g
+'''
