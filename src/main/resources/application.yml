@@ -36,6 +36,11 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
         format_sql: true
         show_sql: true
+  
+#-------------------------------------------------------------
+# h2 Console을 이용한 datasource 접근 처리
+# http://localhost:8080/mydata/h2-console
+#-------------------------------------------------------------
   h2:
     console:
       enabled: true
