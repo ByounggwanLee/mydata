@@ -1,4 +1,4 @@
-package com.abl.mydata;
+package com.mydata;
 
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;

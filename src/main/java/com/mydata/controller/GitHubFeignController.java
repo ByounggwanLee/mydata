@@ -1,4 +1,4 @@
-package com.abl.mydata.controller;
+package com.mydata.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.abl.mydata.domain.service.GitHubFeignService;
-import com.abl.mydata.dto.Contributor;
+import com.mydata.domain.service.GitHubFeignService;
+import com.mydata.dto.Contributor;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

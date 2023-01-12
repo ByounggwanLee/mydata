@@ -1,4 +1,4 @@
-package com.abl.mydata;
+package com.mydata;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

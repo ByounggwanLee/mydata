@@ -1,4 +1,4 @@
-package com.abl.mydata.feign;
+package com.mydata.feign;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.abl.mydata.dto.Contributor;
+import com.mydata.dto.Contributor;
 
 //---------------------------------------------------------------------
 // 인터페이스를 생성하고 @FeignClient 어노테이션을 설정합니다.

@@ -1,4 +1,4 @@
-package com.abl.mydata.feign;
+package com.mydata.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

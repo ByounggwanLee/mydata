@@ -1,13 +1,13 @@
-package com.abl.mydata.domain.service.serviceimpl;
+package com.mydata.domain.service.serviceimpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.abl.mydata.domain.service.GitHubFeignService;
-import com.abl.mydata.dto.Contributor;
-import com.abl.mydata.feign.GitHubFeignClient;
+import com.mydata.domain.service.GitHubFeignService;
+import com.mydata.dto.Contributor;
+import com.mydata.feign.GitHubFeignClient;
 
 @Service
 public class GitHubFeignServiceImpl implements GitHubFeignService {

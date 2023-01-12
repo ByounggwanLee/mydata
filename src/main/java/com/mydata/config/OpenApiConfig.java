@@ -1,4 +1,4 @@
-package com.abl.mydata.config;
+package com.mydata.config;
 
 import java.util.List;
 

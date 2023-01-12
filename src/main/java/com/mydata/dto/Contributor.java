@@ -1,4 +1,4 @@
-package com.abl.mydata.dto;
+package com.mydata.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
