@@ -88,9 +88,17 @@ api:  # Swagger UI Information
 #-------------------------------------------------------------
 # Feign Client 호출 URL 정의
 #-------------------------------------------------------------
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+        
 prop:
   test:
-    url: http://localhost:8080/mydata
+    url: http://localhost:8080
   github: 
     url: https://api.github.com/repos
 
@@ -103,7 +111,7 @@ logging:
     org.springframework: info
     org.springframework.jdbc: info
     org.hibernate.type: off
-    com.abl: debug
+    com.mydata: debug
     
     jdbc:
       connection: off
