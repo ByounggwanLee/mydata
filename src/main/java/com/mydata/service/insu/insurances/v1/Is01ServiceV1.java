@@ -14,7 +14,7 @@
  * @name_ko 보험 기본정보 조회 Service 클래스
  * @author 이병관
 */
-package com.mydata.v1.insu.insurances.basic;
+package com.mydata.service.insu.insurances.v1;
 
 import org.springframework.stereotype.Service;
 
@@ -28,8 +28,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class Is01Service {
-	final Is01Legacy is01Legacy;
+public class Is01ServiceV1 {
+	final Is01LegacyV1 is01Legacy;
 	
 	/*
 	 *  정보주체가 계약한 보험별 기본정보(주계약정보) 조회
@@ -41,7 +41,7 @@ public class Is01Service {
 	 *  @Param limit 최대조회갯수
 	 *  @Return is01Reply 보험 기본정보 조회 응답
 	 */
-	public Is01Reply getInsurances(String authorization, // 접근토큰
+	public Is01ReplyV1 getInsurances(String authorization, // 접근토큰
 			                       String xApiTranId, // 거래고유번호
 			                       String xApiType, // API 유형
 			                       String orgCode, // 기관코드
@@ -49,9 +49,9 @@ public class Is01Service {
 			                       String nextPage, // 조회 타임스탬프
 			                       String limit) {
 		
-		Is01Reply is01Reply;
+		Is01ReplyV1 is01Reply;
 		
-		Is01Request is01Request = Is01Request.builder().authorization(authorization).xApiTranId(xApiTranId)
+		Is01RequestV1 is01Request = Is01RequestV1.builder().authorization(authorization).xApiTranId(xApiTranId)
 				.xApiType(xApiType).orgCode(orgCode).searchTimestamp(searchTimestamp).nextPage(nextPage).limit(limit)
 				.build();
 		

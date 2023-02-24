@@ -2,11 +2,12 @@ package com.mydata.config;
 
 import java.util.List;
 
+import org.springdoc.core.GroupedOpenApi;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.stereotype.Controller;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -57,7 +58,51 @@ public class OpenApiConfig {
             .security(getSecurityRequirement())
             .info(info());
     }
+    
+    @Bean
+    public GroupedOpenApi apiAll() {
+        return GroupedOpenApi.builder()
+                .group("all")
+                .pathsToMatch("/**")
+                .build();
+    }
 
+    @Bean
+    public GroupedOpenApi apiNoVersion() {
+        return GroupedOpenApi.builder()
+                .group("common")
+                .pathsToExclude("/**")
+                .packagesToScan("com.mydata.controller.commoncontroller")
+                .build();
+    }
+    
+    @Bean
+    public GroupedOpenApi apiSample() {
+        return GroupedOpenApi.builder()
+                .group("sample")
+                .pathsToMatch("/**")
+                .packagesToScan("com.mydata.sample")
+                .build();
+    }
+    
+    @Bean
+    public GroupedOpenApi apiV1() {
+        return GroupedOpenApi.builder()
+                .group("v1")
+                .pathsToMatch("/v1/**")
+                .packagesToScan("com.mydata.controller")
+                .build();
+    }
+    
+    @Bean
+    public GroupedOpenApi apiV2() {
+        return GroupedOpenApi.builder()
+                .group("v2")
+                .pathsToMatch("/v2/**")
+                .packagesToScan("com.mydata.controller")
+                .build();
+    }
+    
     private Info info() {
         return new Info()
             .title(title)

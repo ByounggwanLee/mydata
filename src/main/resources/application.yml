@@ -60,7 +60,8 @@ springdoc:
   swagger-ui: # 기본값 : 컨트롤러 내에서 정의한 api 메서드 순
     enabled: true
     operations-sorter: method # 태그 내 각 api의 정렬 기준
-    tags-sorter: alpha # alpha(알파벳 오름차순), method(http method 순)
+                              # alpha(알파벳 오름차순), method(http method 순) 
+    tags-sorter: alpha 
     # path: swagger-ui.html
     disable-swagger-default-url: true
       # json화 된 config파일 대신 파라미터를 이용하여 swagger-ui에 접근하도록 합니다.
@@ -69,8 +70,8 @@ springdoc:
       # tag와 operation을 펼치는 방식에 대한 설정
       # String=["list", "full", "none"]
       # none으로 설정할 경우, tag 및 operation이 모두 닫힌채로 문서가 열립니다.
-  paths-to-match: # OpenAPI 3 로 문서화할 api path 리스트
-    - /**
+  #paths-to-match: # OpenAPI 3 로 문서화할 api path 리스트
+  #  - /**
 api:  # Swagger UI Information
   info:
     title: ABL Mydata Service API

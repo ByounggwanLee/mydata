@@ -3,7 +3,7 @@
  * @name_ko 보험 기본정보 클래스
  * @author 이병관
 */
-package com.mydata.v1.insu.insurances.basic;
+package com.mydata.service.insu.insurances.v1;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -22,7 +22,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)     // Camel응답을 Snake응답으로
 @Schema(description = "보험 기본정보")
-public class InsuList {
+public class InsuListV1 {
 	// @Schema(description = "", nullable = true , defaultValue = "" , example = ""  , allowableValues = {"", ""})
 	@Schema(description = "증권번호 aN (20)", nullable = false)
 	String insuNum; // -- 증권번호 aN (20)
