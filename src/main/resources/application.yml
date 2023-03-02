@@ -17,19 +17,19 @@ spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     url: jdbc:oracle:thin:@localhost/ORAMYDATA
-    username: system
-    password: Qudrhks2!
+    username: mydata
+    password: abllife
 
   jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: none # create, create-drop, validate, update, none
+      ddl-auto: create # create, create-drop, validate, update, none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         # SpringPhysicalNamingStrategy(Default)  =>  camel case를 underscore 형태로 변경
         # PhysicalNamingStrategyStandardImpl     =>  변수 이름을 그대로 사용
       use-new-id-generator-mappings: false
-    generate-ddl: false
+    generate-ddl: true
     show_sql: true
     properties:
       hibernate:
@@ -93,6 +93,7 @@ feign:
   client:
     config:
       default:
+        errorDecoder: com.mydata.exception.FeignErrorDecoder
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: basic
@@ -130,4 +131,15 @@ logging:
       max-history: 30
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss.SSS,Asia/Seoul
+    
+mybatis:  # type을 쉽게 쓰기 위해서 dto 패키지를 type-aliaes에 설정
+  # xml파일 result type에 패키지명을 생략할 수 있도록 Alias 설정
+  type-aliases-package: com.mydata.domain.mybatis
+  # resource디렉토리의 mapper xml 파일위치
+  mapper-locations: classpath:mapper/**/*.xml
+  # type-handlers-package: com.example.typehandler
+  configuration:
+  # map-underscore-to-camel-case: true
+    default-fetch-size: 500
+    default-statement-timeout: 30
     
