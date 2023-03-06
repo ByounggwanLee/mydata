@@ -1,6 +1,39 @@
-# mydata
+# Mydata
 
-runOracle.bat
+## 개발내용
+
+### 1. 개발환경 정의
+    a. Java 1.8
+    b. Oracle 19c
+    c. 개발툴 Spring Tool Suit4
+    d. Framework : Spring Boot 2.7.1
+   
+### 2. Spring Boot Project생성
+    a. Naming Convention 표준적용
+        1) 디렉토리 생성
+        2) 파일 생성
+	  
+    b. exception 및 Log 표준적용
+        1) 오류에 따른 Mydata 응답메세지 표준적용
+        2) slf4j을 이용한 로그모델 적용
+	  
+    c. Online 표준 Process 정의
+        1) Controller -> Service -> Legacy(Feign)
+        2) Controller -> Service -> JPA
+        3) Controller -> Service -> MyBatis
+	  
+    d. 처리결과 DB저장 Model 적용(JPA) : Domain / Entity - Repository
+    
+    e. Join 및 Complex Query Model 적용(JPA) : Domain / Mybatis, Resource / mapper 
+    
+    f. Swagger을 이용한 테스트 화면 제공 
+        1) 기능별 테스트
+        2) Version별 테스트 
+    
+    g. 주석표준 적용	 
+
+## DOCKER
+### runOracle.bat
 ``` 
 echo off
 REM docker network create dev-net
