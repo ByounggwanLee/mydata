@@ -31,7 +31,38 @@
         2) Version별 테스트 
     
     g. 주석표준 적용	 
+## 거래로그
+### Mydata 거래로그 구현방안
+#### 1. Primary Key
+    a. API코드
+    b. 전송일자(systemTimeStamp)
+    c. 거래고유번호(x-trans-id)
+    d. 고객번호(ABL 고객정보번호)
+#### 2. 추가컬럼
+    a. 증권번호
+    b. Json( BLOB/CLOB ): 응답메세지 전체
+```
+<< 코딩 >>
+import net.sf.json.JSONArray;
+import com.google.gson.Gson; 
 
+// 라이브러리가 없으면 메이븐이나 jar파일을 직접 다운로드해서 import..
+
+List resultList = new ArrayList<String>();
+resultList.add("a");
+resultList.add("b");
+resultList.add("c");
+
+// 방법 1
+//JSONArray 객체 사용
+JSONArray result = JSONArray.fromObject(resultList); //HashMap 등의 복잡한 자료형으로 덮어도 가능
+System.out.println("제이슨 결과 = " + mapResult.toString());
+
+// 방법 2
+// Gson 사용
+String json = new Gson().toJson(resultList);
+System.out.println("제이슨 결과2 = " + json;
+```
 ## DOCKER
 ### runOracle.bat
 ``` 
